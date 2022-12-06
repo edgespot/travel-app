@@ -11,6 +11,6 @@ jobs:
         with:
           node-version: "14"
       - run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       # - run: echo "${{ secrets.DATABASE_URL }}"
-      #   env:
-      #     DATABASE_URL: ${{ secrets.DATABASE_URL }}
