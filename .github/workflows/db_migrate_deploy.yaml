@@ -9,5 +9,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "14"
-      - run: echo "DATABASE_URL=xxxxx" >> $GITHUB_ENV
+      - run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
       - run: npx prisma migrate deploy
