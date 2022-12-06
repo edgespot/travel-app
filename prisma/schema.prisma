@@ -64,3 +64,10 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Trip {
+  id    Int      @id @default(autoincrement())
+  name  String
+  start DateTime
+  end   DateTime
+}
