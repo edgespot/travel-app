@@ -13,4 +13,3 @@ jobs:
       - run: npx prisma migrate deploy
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      # - run: echo "${{ secrets.DATABASE_URL }}"
