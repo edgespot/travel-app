@@ -1,0 +1,20 @@
+name: deploy-migrate-staging
+run-name: ${{ github.actor }} is deploying migrations to the staging DB
+on:
+  push:
+    branches:
+      - main
+      - production
+
+jobs:
+  deploy-migrate:
+    runs-on: ubuntu-latest
+    environment: Preview
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+      - run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
