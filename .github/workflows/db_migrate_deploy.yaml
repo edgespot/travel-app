@@ -1,5 +1,8 @@
-name: deploy-migrate-staging
-run-name: ${{ github.actor }} is deploying migrations to the staging DB
+# This workflow applies migrations to the staging or production DB.
+# Secrets are set in the GH repository environments.
+
+name: deploy-prisma-migrations
+run-name: ${{ github.actor }} is deploying migrations to the ${{ github.head_ref || github.ref_name }} DB
 on:
   push:
     branches:
