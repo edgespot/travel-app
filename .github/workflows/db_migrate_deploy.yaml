@@ -1,6 +1,11 @@
 name: deploy-migrate-staging
 run-name: ${{ github.actor }} is deploying migrations to the staging DB
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - production
+
 jobs:
   deploy-migrate:
     runs-on: ubuntu-latest
